@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "HT3todolist"
+    }
+  },
+  "defaultProject": "HT3todolist",
+  "cli": {
+    "analytics": false
+  }
 }
