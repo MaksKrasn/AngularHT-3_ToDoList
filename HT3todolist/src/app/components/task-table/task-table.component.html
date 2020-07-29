@@ -7,9 +7,11 @@
     <tbody>
       <tr mdbTableCol *ngFor="let el of elements">
         <th scope="row">{{el.id}}</th>
-        <td>{{el.first}}</td>
-        <td>{{el.last}}</td>
-        <td>{{el.handle}}</td>
+        <td>{{el.taskName}}</td>
+        <td>{{el.description}}</td>
+        <td>{{el.taskData}}</td>
+        <td>{{el.beginTime}}</td>
+        <td>{{el.endTime}}</td>
       </tr>
     </tbody>
   </table>
