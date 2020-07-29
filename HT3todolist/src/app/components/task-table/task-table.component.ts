@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
+import { Task } from 'src/app/models/Task';
 
 @Component({
   selector: 'task-table',
@@ -14,12 +15,23 @@ export class TaskTableComponent implements OnInit {
     {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
   ];*/
 
-  elements = [];
-  headElements = ['ID', 'Task name', 'Description', 'Data', 'Begin time', 'End time', 'Is complieted?', 'Action'];
+  elements: Task[];
+  headElements = ['ID', 'Task name', 'Description', 'Data', 'Begin time', 'End time', 'State', 'Action'];
 
   constructor(public tasksService: TasksService ) {
-    this.elements = tasksService as any;
+    this.elements = tasksService.getTasks();
     console.log(this.elements);
+  }
+
+  onClickEl(id: number){
+    console.log('click task' + id);
+  }
+
+  onChangeState(id: number){
+    let task: Task = this.tasksService.viewTask(id);
+    task.isCompleted? task.isCompleted = false: task.isCompleted = true;
+    console.log('task ' + id + ' ' + task.isCompleted);
+    console.log(this.tasksService);
   }
 
   ngOnInit(): void {

@@ -6,12 +6,20 @@
     </thead>
     <tbody>
       <tr mdbTableCol *ngFor="let el of elements">
-        <th scope="row">{{el.id}}</th>
+        <th scope="row" (click) = "onClickEl(el.id)">{{el.id}}</th>
         <td>{{el.taskName}}</td>
         <td>{{el.description}}</td>
         <td>{{el.taskData}}</td>
         <td>{{el.beginTime}}</td>
         <td>{{el.endTime}}</td>
+        <td>
+          <mdb-checkbox [checked]="el.isCompleted" (change)="onChangeState(el.id)">Completed</mdb-checkbox>
+        </td>
+        <td>
+          <button type="button" mdbBtn color="warning" mdbWavesEffect>Edit</button>
+          <button type="button" mdbBtn color="danger" mdbWavesEffect>Remove</button>
+        </td>
+        
       </tr>
     </tbody>
   </table>
