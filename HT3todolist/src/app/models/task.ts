@@ -2,16 +2,18 @@ export class Task{
     id: number;
     taskName: string = '';
     description: string = '';
-    beginData: string = '';
-    endData: string = '';
+    taskData: string = '';
+    beginTime: string = '';
+    endTime: string = '';
     isCompleted: boolean = false;
 
-    constructor(id: number, taskName: string, description: string, beginData: string, endData: string, isCompleted: boolean){
+    constructor(id: number, taskName: string, description: string, taskData: string, beginTime: string, endTime: string, isCompleted: boolean){
         this.id = id;
         this.taskName = taskName;
         this.description = description;
-        this.beginData = beginData;
-        this.endData = endData;
+        this.taskData = taskData;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
         this.isCompleted = isCompleted;
     }
 }
