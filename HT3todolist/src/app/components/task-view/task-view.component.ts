@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input, ViewChild, TemplateRef } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
+// MDB Angular Free
+import { ModalModule, WavesModule, InputsModule, ButtonsModule, MDBModalRef, MDBModalService } from 'angular-bootstrap-md'
 
 @Component({
   selector: 'task-view',
@@ -10,28 +12,31 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 export class TaskViewComponent{
     viewForm: FormGroup;
 
+    constructor(private modalService: MDBModalService) {}
+
     ngOnInit() {
-        this.viewForm = new FormGroup({
-          contactFormModalName: new FormControl('', Validators.required),
-          contactFormModalEmail: new FormControl('', Validators.email),
-          contactFormModalSubject: new FormControl('', Validators.required),
-          contactFormModalMessage: new FormControl('', Validators.required)
-        });
+      this.viewForm = new FormGroup({
+        contactFormModalName: new FormControl('', Validators.required),
+        contactFormModalEmail: new FormControl('', Validators.email),
+        contactFormModalSubject: new FormControl('', Validators.required),
+        contactFormModalMessage: new FormControl('', Validators.required)
+      });
     }
 
     get contactFormModalName() {
         return this.viewForm.get('contactFormModalName');
-      }
+    }
     
-      get contactFormModalEmail() {
+    get contactFormModalEmail() {
         return this.viewForm.get('contactFormModalEmail');
-      }
+    }
     
-      get contactFormModalSubject() {
+    get contactFormModalSubject() {
         return this.viewForm.get('contactFormModalSubject');
-      }
+    }
     
-      get contactFormModalMessage() {
+    get contactFormModalMessage() {
         return this.viewForm.get('contactFormModalMessage');
-      }
+    }
+
 }

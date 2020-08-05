@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { ModalModule, WavesModule, InputsModule, ButtonsModule, MDBModalRef, MDBModalService } from 'angular-bootstrap-md'
+import { TaskViewComponent } from './task-view/task-view.component'
 import { TasksService } from '../services/tasks.service';
+import { Task } from '../models/Task';
 
 
 @Component({
@@ -9,8 +12,19 @@ import { TasksService } from '../services/tasks.service';
 })
 export class AppComponent {
   title = 'HT3todolist';
+  selectedTask: Task;
 
-  constructor(public tasksService: TasksService){
-    console.log(tasksService);
+  modalRef: MDBModalRef;
+
+  constructor(public tasksService: TasksService, private modalService: MDBModalService){}
+
+  onClickElement(id: number){
+    this.selectedTask = this.tasksService.viewTask(id);
+    console.log(this.selectedTask);
+    this.openModal();
+  }
+
+  openModal() {
+    this.modalRef = this.modalService.show(TaskViewComponent);
   }
 }

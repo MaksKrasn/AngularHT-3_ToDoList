@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { TasksService } from 'src/app/services/tasks.service';
 import { Task } from 'src/app/models/Task';
 
@@ -9,11 +9,7 @@ import { Task } from 'src/app/models/Task';
 })
 export class TaskTableComponent implements OnInit {
 
-  /*elements: any = [
-    {id: 1, first: 'Mark', last: 'Otto', handle: '@mdo'},
-    {id: 2, first: 'Jacob', last: 'Thornton', handle: '@fat'},
-    {id: 3, first: 'Larry', last: 'the Bird', handle: '@twitter'},
-  ];*/
+  @Output() viewEvent = new EventEmitter<number>();
 
   elements: Task[];
   headElements = ['ID', 'Task name', 'Description', 'Data', 'Begin time', 'End time', 'State'];
@@ -25,6 +21,7 @@ export class TaskTableComponent implements OnInit {
 
   onClickEl(id: number){
     console.log('click task' + id);
+    this.viewEvent.emit(id);
   }
 
   onChangeState(id: number){
