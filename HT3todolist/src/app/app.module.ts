@@ -5,12 +5,14 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './components/app.component';
 import { TaskTableComponent } from './components/task-table/task-table.component';
+import { TaskViewComponent } from './components/task-view/task-view.component'
 import { TasksService } from './services/tasks.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TaskTableComponent
+    TaskTableComponent,
+    TaskViewComponent
   ],
   imports: [
     BrowserModule,

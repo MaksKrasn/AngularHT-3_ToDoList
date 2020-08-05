@@ -16,7 +16,7 @@ export class TaskTableComponent implements OnInit {
   ];*/
 
   elements: Task[];
-  headElements = ['ID', 'Task name', 'Description', 'Data', 'Begin time', 'End time', 'State', 'Action'];
+  headElements = ['ID', 'Task name', 'Description', 'Data', 'Begin time', 'End time', 'State'];
 
   constructor(public tasksService: TasksService ) {
     this.elements = tasksService.getTasks();
