@@ -12,7 +12,7 @@ import { ModalModule, WavesModule, InputsModule, ButtonsModule, MDBModalRef, MDB
 export class TaskViewComponent{
     viewForm: FormGroup;
 
-    constructor(private modalService: MDBModalService) {}
+    constructor(public modalRef: MDBModalRef) {}
 
     ngOnInit() {
       this.viewForm = new FormGroup({

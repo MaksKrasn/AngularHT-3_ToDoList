@@ -27,4 +27,8 @@ export class AppComponent {
   openModal() {
     this.modalRef = this.modalService.show(TaskViewComponent);
   }
+
+  closeModal(){
+    this.modalRef.hide();
+  }
 }

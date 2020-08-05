@@ -22,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
+  entryComponents: [ TaskViewComponent ],
   providers: [TasksService],
   bootstrap: [AppComponent]
 })
