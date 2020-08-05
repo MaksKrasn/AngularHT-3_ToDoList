@@ -7,6 +7,7 @@ import { AppComponent } from './components/app.component';
 import { TaskTableComponent } from './components/task-table/task-table.component';
 import { TaskViewComponent } from './components/task-view/task-view.component'
 import { TasksService } from './services/tasks.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { TasksService } from './services/tasks.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [TasksService],
   bootstrap: [AppComponent]
