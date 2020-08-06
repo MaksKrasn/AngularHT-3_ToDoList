@@ -18,21 +18,22 @@ export class TaskViewComponent{
 
     ngOnInit() {
       this.viewForm = new FormGroup({
-        viewFormTaskName: new FormControl('', Validators.required),
-        viewFormTaskData: new FormControl('', Validators.required),
-        viewFormDescription: new FormControl('', Validators.required),
-        viewFormBeginTime: new FormControl('', Validators.required),
-        viewFormEndTime: new FormControl('', Validators.required)
+        //viewFormTaskName: new FormControl('', Validators.required),
+        viewFormTaskData: new FormControl(this.selectedTask.taskData, Validators.required),
+        //viewFormDescription: new FormControl('', Validators.required),
+        viewFormBeginTime: new FormControl(this.selectedTask.beginTime, Validators.required),
+        //viewFormEndTime: new FormControl('', Validators.required)
       });
+      //console.log('view-component ' + this.selectedTask.taskName);
     }
 
-    get viewFormTaskName() { return this.viewForm.get('viewFormTaskName'); }
+    //get viewFormTaskName() { return this.viewForm.get('viewFormTaskName'); }
 
     get viewFormTaskData() { return this.viewForm.get('viewFormTaskData'); }
 
-    get viewFormDescription() { return this.viewForm.get('viewFormDescription'); }
+    //get viewFormDescription() { return this.viewForm.get('viewFormDescription'); }
 
     get viewFormBeginTime() { return this.viewForm.get('viewFormBeginTime'); }
 
-    get viewFormEndTime() { return this.viewForm.get('viewFormEndTime'); }
+    //get viewFormEndTime() { return this.viewForm.get('viewFormEndTime'); }
 }

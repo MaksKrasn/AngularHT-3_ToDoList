@@ -10,14 +10,14 @@
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-default">Дата</span>
       </div>
-      <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormTaskData" aria-describedby="inputGroup-sizing-default" [(value)]="selectedTask.taskData">
+      <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormTaskData" aria-describedby="inputGroup-sizing-default" (value)="selectedTask.taskData">
       <mdb-error *ngIf="viewFormTaskData.invalid && (viewFormTaskData.dirty || viewFormTaskData.touched)">Input invalid</mdb-error>
     </div>
     <div class="input-group mb-3 md-form">
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-default">Время начала</span>
       </div>
-      <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormBeginTime" aria-describedby="inputGroup-sizing-default" [(value)]="selectedTask.beginTime">
+      <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormBeginTime" aria-describedby="inputGroup-sizing-default" (value)="selectedTask.beginTime">
       <mdb-error *ngIf="viewFormBeginTime.invalid && (viewFormBeginTime.dirty || viewFormBeginTime.touched)">Input invalid</mdb-error>
     </div>
   </form>
