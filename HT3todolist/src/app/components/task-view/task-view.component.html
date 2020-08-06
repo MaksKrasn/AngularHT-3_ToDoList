@@ -5,7 +5,22 @@
   <h4 class="modal-title w-100" id="myModalLabel">{{selectedTask.taskName}}</h4>
 </div>
 <div class="modal-body">
-  <h4>{{selectedTask.taskData}}</h4>
+  <form>
+    <div class="input-group mb-3 md-form">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Дата</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormTaskData" aria-describedby="inputGroup-sizing-default" [(value)]="selectedTask.taskData">
+      <mdb-error *ngIf="viewFormTaskData.invalid && (viewFormTaskData.dirty || viewFormTaskData.touched)">Input invalid</mdb-error>
+    </div>
+    <div class="input-group mb-3 md-form">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Время начала</span>
+      </div>
+      <input type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormBeginTime" aria-describedby="inputGroup-sizing-default" [(value)]="selectedTask.beginTime">
+      <mdb-error *ngIf="viewFormBeginTime.invalid && (viewFormBeginTime.dirty || viewFormBeginTime.touched)">Input invalid</mdb-error>
+    </div>
+  </form>
 </div>
 <div class="modal-footer">
   <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Close</button>

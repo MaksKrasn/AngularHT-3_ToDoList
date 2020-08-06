@@ -15,4 +15,24 @@ export class TaskViewComponent{
     selectedTask: Task;
 
     constructor(public modalRef: MDBModalRef) {}
+
+    ngOnInit() {
+      this.viewForm = new FormGroup({
+        viewFormTaskName: new FormControl('', Validators.required),
+        viewFormTaskData: new FormControl('', Validators.required),
+        viewFormDescription: new FormControl('', Validators.required),
+        viewFormBeginTime: new FormControl('', Validators.required),
+        viewFormEndTime: new FormControl('', Validators.required)
+      });
+    }
+
+    get viewFormTaskName() { return this.viewForm.get('viewFormTaskName'); }
+
+    get viewFormTaskData() { return this.viewForm.get('viewFormTaskData'); }
+
+    get viewFormDescription() { return this.viewForm.get('viewFormDescription'); }
+
+    get viewFormBeginTime() { return this.viewForm.get('viewFormBeginTime'); }
+
+    get viewFormEndTime() { return this.viewForm.get('viewFormEndTime'); }
 }
