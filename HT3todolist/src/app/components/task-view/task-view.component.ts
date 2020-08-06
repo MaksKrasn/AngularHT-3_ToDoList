@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, Input, ViewChild, TemplateRef } from '
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 // MDB Angular Free
 import { ModalModule, WavesModule, InputsModule, ButtonsModule, MDBModalRef, MDBModalService } from 'angular-bootstrap-md'
+import { Task } from 'src/app/models/Task';
 
 @Component({
   selector: 'task-view',
@@ -11,32 +12,7 @@ import { ModalModule, WavesModule, InputsModule, ButtonsModule, MDBModalRef, MDB
 
 export class TaskViewComponent{
     viewForm: FormGroup;
+    selectedTask: Task;
 
     constructor(public modalRef: MDBModalRef) {}
-
-    ngOnInit() {
-      this.viewForm = new FormGroup({
-        contactFormModalName: new FormControl('', Validators.required),
-        contactFormModalEmail: new FormControl('', Validators.email),
-        contactFormModalSubject: new FormControl('', Validators.required),
-        contactFormModalMessage: new FormControl('', Validators.required)
-      });
-    }
-
-    get contactFormModalName() {
-        return this.viewForm.get('contactFormModalName');
-    }
-    
-    get contactFormModalEmail() {
-        return this.viewForm.get('contactFormModalEmail');
-    }
-    
-    get contactFormModalSubject() {
-        return this.viewForm.get('contactFormModalSubject');
-    }
-    
-    get contactFormModalMessage() {
-        return this.viewForm.get('contactFormModalMessage');
-    }
-
 }
