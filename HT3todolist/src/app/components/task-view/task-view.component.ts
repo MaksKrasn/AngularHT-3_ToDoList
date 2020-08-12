@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, Input, ViewChild, TemplateRef } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-// MDB Angular Free
+import { TasksService } from '../../services/tasks.service';
 import { ModalModule, WavesModule, InputsModule, ButtonsModule, MDBModalRef, MDBModalService } from 'angular-bootstrap-md'
 import { Task } from 'src/app/models/Task';
 
@@ -14,7 +14,7 @@ export class TaskViewComponent{
     viewForm: FormGroup;
     selectedTask: Task;
 
-    constructor(public modalRef: MDBModalRef) {}
+    constructor(public tasksService: TasksService, public modalRef: MDBModalRef) {}
 
     ngOnInit() {
       this.viewForm = new FormGroup({
@@ -35,4 +35,17 @@ export class TaskViewComponent{
     get viewFormBeginTime() { return this.viewForm.get('viewFormBeginTime'); }
 
     get viewFormEndTime() { return this.viewForm.get('viewFormEndTime'); }
+
+    onClickSave(){
+      if(this.selectedTask == null){
+        let addTask: Task = new Task(0, this.viewFormTaskName.value, this.viewFormDescription.value, 
+          this.viewFormTaskData.value, this.viewFormBeginTime.value, this.viewFormEndTime.value, false);
+        this.tasksService.addTask(addTask);
+        
+      }
+      else{
+
+      }
+      this.modalRef.hide();
+    }
 }
