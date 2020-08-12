@@ -5,7 +5,20 @@
   <h4 class="modal-title w-100" id="myModalLabel">{{((selectedTask != null)? selectedTask.taskName: "New task")}}</h4>
 </div>
 <div class="modal-body">
-  <form>
+  <form><div class="input-group mb-3 md-form">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Название задачи</span>
+    </div>
+    <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormTaskName" aria-describedby="inputGroup-sizing-default" (value)="selectedTask.taskData">
+    <mdb-error *ngIf="viewFormTaskName.invalid && (viewFormTaskName.dirty || viewFormTaskName.touched)">Input invalid</mdb-error>
+  </div>
+  <div class="input-group mb-3 md-form">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Описание</span>
+    </div>
+    <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormDescription" aria-describedby="inputGroup-sizing-default" (value)="selectedTask.taskData">
+    <mdb-error *ngIf="viewFormDescription.invalid && (viewFormDescription.dirty || viewFormDescription.touched)">Input invalid</mdb-error>
+  </div>
     <div class="input-group mb-3 md-form">
       <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroup-sizing-default">Дата</span>
@@ -19,6 +32,13 @@
       </div>
       <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormBeginTime" aria-describedby="inputGroup-sizing-default" (value)="selectedTask.beginTime">
       <mdb-error *ngIf="viewFormBeginTime.invalid && (viewFormBeginTime.dirty || viewFormBeginTime.touched)">Input invalid</mdb-error>
+    </div>
+    <div class="input-group mb-3 md-form">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-default">Время окончания</span>
+      </div>
+      <input mdbValidate type="text" class="form-control" aria-label="Sizing example input" [formControl] = "viewFormEndTime" aria-describedby="inputGroup-sizing-default" (value)="selectedTask.beginTime">
+      <mdb-error *ngIf="viewFormEndTime.invalid && (viewFormEndTime.dirty || viewFormEndTime.touched)">Input invalid</mdb-error>
     </div>
   </form>
 </div>
