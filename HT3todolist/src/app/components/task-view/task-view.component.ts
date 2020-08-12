@@ -19,9 +19,9 @@ export class TaskViewComponent{
     ngOnInit() {
       this.viewForm = new FormGroup({
         //viewFormTaskName: new FormControl('', Validators.required),
-        viewFormTaskData: new FormControl(this.selectedTask.taskData, Validators.required),
+        viewFormTaskData: new FormControl((this.selectedTask != null)? this.selectedTask.taskData:'', Validators.required),
         //viewFormDescription: new FormControl('', Validators.required),
-        viewFormBeginTime: new FormControl(this.selectedTask.beginTime, Validators.required),
+        viewFormBeginTime: new FormControl((this.selectedTask != null)? this.selectedTask.beginTime:'', Validators.required),
         //viewFormEndTime: new FormControl('', Validators.required)
       });
       //console.log('view-component ' + this.selectedTask.taskName);
