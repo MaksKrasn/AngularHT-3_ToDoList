@@ -13,16 +13,18 @@ import { Task } from 'src/app/models/Task';
 export class TaskViewComponent{
     viewForm: FormGroup;
     selectedTask: Task;
+    timeRegex = /\d{2}:\d{2}$/;
+    dataRegex = /\d{2}.\d{2}.\d{4}$/;
 
     constructor(public tasksService: TasksService, public modalRef: MDBModalRef) {}
 
     ngOnInit() {
       this.viewForm = new FormGroup({
         viewFormTaskName: new FormControl((this.selectedTask != null)? this.selectedTask.taskName:'', Validators.required),
-        viewFormTaskData: new FormControl((this.selectedTask != null)? this.selectedTask.taskData:'', Validators.required),
+        viewFormTaskData: new FormControl((this.selectedTask != null)? this.selectedTask.taskData:'', [Validators.required,  Validators.pattern(this.dataRegex)]),
         viewFormDescription: new FormControl((this.selectedTask != null)? this.selectedTask.description:'', Validators.required),
-        viewFormBeginTime: new FormControl((this.selectedTask != null)? this.selectedTask.beginTime:'', Validators.required),
-        viewFormEndTime: new FormControl((this.selectedTask != null)? this.selectedTask.endTime:'', Validators.required)
+        viewFormBeginTime: new FormControl((this.selectedTask != null)? this.selectedTask.beginTime:'', [Validators.required,  Validators.pattern(this.timeRegex)]),
+        viewFormEndTime: new FormControl((this.selectedTask != null)? this.selectedTask.endTime:'', [Validators.required,  Validators.pattern(this.timeRegex)])
       });
     }
 
