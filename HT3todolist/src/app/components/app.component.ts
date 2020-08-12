@@ -32,11 +32,13 @@ export class AppComponent {
     this.openModal();
   }
 
+  onCLickNewTask(){
+    this.modalRef = this.modalService.show(TaskViewComponent);
+  }
+
   openModal() {
     this.modalRef = this.modalService.show(TaskViewComponent, this.modalOptions);
   }
 
-  closeModal(){
-    this.modalRef.hide();
-  }
+  
 }
