@@ -50,7 +50,11 @@ export class TaskViewComponent{
         
       }
       else{
-
+        this.selectedTask.taskName = this.viewFormTaskName.value;
+        this.selectedTask.description = this.viewFormDescription.value;
+        this.selectedTask.taskData = this.viewFormTaskData.value;
+        this.selectedTask.beginTime = this.viewFormBeginTime.value;
+        this.selectedTask.endTime = this.viewFormEndTime.value;
       }
       this.modalRef.hide();
     }
