@@ -13,10 +13,13 @@ import { Task } from 'src/app/models/Task';
 export class TaskViewComponent{
     viewForm: FormGroup;
     selectedTask: Task;
+    isEdit: boolean = false;
     timeRegex = /\d{2}:\d{2}$/;
     dataRegex = /\d{2}.\d{2}.\d{4}$/;
 
-    constructor(public tasksService: TasksService, public modalRef: MDBModalRef) {}
+    constructor(public tasksService: TasksService, public modalRef: MDBModalRef) {
+      
+    }
 
     ngOnInit() {
       this.viewForm = new FormGroup({
@@ -26,6 +29,7 @@ export class TaskViewComponent{
         viewFormBeginTime: new FormControl((this.selectedTask != null)? this.selectedTask.beginTime:'', [Validators.required,  Validators.pattern(this.timeRegex)]),
         viewFormEndTime: new FormControl((this.selectedTask != null)? this.selectedTask.endTime:'', [Validators.required,  Validators.pattern(this.timeRegex)])
       });
+      if(this.selectedTask != null) this.isEdit = true;
     }
 
     get viewFormTaskName() { return this.viewForm.get('viewFormTaskName'); }
@@ -49,5 +53,12 @@ export class TaskViewComponent{
 
       }
       this.modalRef.hide();
+    }
+
+    onClickRemove(){
+      this.modalRef.hide();
+      if(this.selectedTask != null){
+        this.tasksService.removeTask(this.selectedTask.id);
+      }
     }
 }

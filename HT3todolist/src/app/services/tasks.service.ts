@@ -12,8 +12,14 @@ export class TasksService{
     }
 
     addTask(task: Task) {
+        let idNewTask: number;
         let idxLast = this.tasks.length - 1;
-        let idNewTask = this.tasks[idxLast].id + 1;
+        if(idxLast < 0){
+            idNewTask = 1;
+        }
+        else{
+            idNewTask = this.tasks[idxLast].id + 1;
+        }
         task.id = idNewTask;
         this.tasks.push(task);
     }

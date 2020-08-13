@@ -46,3 +46,4 @@
   <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="modalRef.hide()" mdbWavesEffect>Close</button>
   <button type="button" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect (click)="onClickSave()">Save!</button>
 </div>
+<button type="button" mdbBtn color="link" *ngIf="isEdit" (click)="onClickRemove()">Удалить задачу</button>
